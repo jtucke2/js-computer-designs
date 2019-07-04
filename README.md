@@ -1,3 +1,8 @@
+This is a project for AIT 610 at Towson University, Maryland, USA.
+
+&copy; 2019 Jason Tucker
+
+
 # JsComputerDesigns
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.1.0.
