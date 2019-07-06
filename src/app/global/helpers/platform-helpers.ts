@@ -6,8 +6,4 @@ export class PlatformHelpers {
         // TODO add handling for local storage
         return defaultPlatforms;
     }
-
-    static foo() {
-        return 3;
-    }
 }

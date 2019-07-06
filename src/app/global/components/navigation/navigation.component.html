@@ -1,6 +1,8 @@
 <mat-toolbar id="navComponent" color="primary" class="mat-elevation-z5">
-  <a mat-icon-button routerLink="/home">
+  <a mat-icon-button routerLink="/">
     <img src="./assets/images/nodejs-seeklogo.com.svg" alt="JS Logo" height="30px">
   </a>
   <span class="spacer">&nbsp;</span>
+  <a mat-button routerLink="/user/login" *ngIf="!userService.loggedIn">Sign in</a>
+  <a mat-button routerLink="/user/register" *ngIf="!userService.loggedIn">Register</a>
 </mat-toolbar>

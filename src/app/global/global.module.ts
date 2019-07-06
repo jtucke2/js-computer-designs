@@ -5,6 +5,7 @@ import { MatToolbarModule, MatButtonModule, MatCardModule } from '@angular/mater
 import { LandingPageComponent } from './components/landing-page/landing-page.component';
 import { NavigationComponent } from './components/navigation/navigation.component';
 import { JscFooterComponent } from './components/jsc-footer/jsc-footer.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -14,6 +15,7 @@ import { JscFooterComponent } from './components/jsc-footer/jsc-footer.component
   ],
   imports: [
     CommonModule,
+    RouterModule,
     MatToolbarModule,
     MatButtonModule,
     MatCardModule,
