@@ -5,3 +5,11 @@ nodejs-seeklogo.com.svg = https://seeklogo.com/vector-logo/273749/node-js (Modif
 clear-computer-connection-2399840.jpg = https://www.pexels.com/photo/black-and-red-computer-motherboard-2399840/
 
 blur-close-up-contemporary-2225618.jpg = https://www.pexels.com/photo/electronic-device-2225618/
+
+Carbide-600Q-01.png = https://www.corsair.com/medias/sys_master/images/images/h76/h0e/9110579544094/-CC-9011080-WW-Gallery-Carbide-600Q-01.png
+
+570X-RGB-MB-01-RED.png = https://www.corsair.com/medias/sys_master/images/images/h89/h13/9112354029598/-CC-9011126-WW-Gallery-570X-RGB-MB-01-RED.png
+
+Carbide-SPEC-M2-002.png = https://www.corsair.com/medias/sys_master/images/images/hb2/h67/9112375427102/-CC-9011087-WW-Gallery-Carbide-SPEC-M2-002.png
+
+1000D-Built-27.png = https://www.corsair.com/medias/sys_master/images/images/ha6/h5b/9112468783134/-CC-9011148-WW-Gallery-1000D-Built-27.png

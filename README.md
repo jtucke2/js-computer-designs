@@ -1,4 +1,4 @@
-This is a project for AIT 610 at Towson University, Maryland, USA.
+This is a project for AIT 610 at Towson University, Maryland, USA.  This projects is for academic purposes only.
 
 &copy; 2019 Jason Tucker
 

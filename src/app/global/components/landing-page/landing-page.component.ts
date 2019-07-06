@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { InventoryService } from '../../services/inventory.service';
 
 @Component({
   selector: 'landing-page',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LandingPageComponent implements OnInit {
 
-  constructor() { }
+  constructor(public inventoryService: InventoryService) { }
 
   ngOnInit() {
   }
