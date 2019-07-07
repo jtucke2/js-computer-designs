@@ -13,8 +13,8 @@ export interface ComputerComponent<T = string, U = string> {
 export interface ComponentManufacturer {
     name: string;
     address: string;
-    phoneNumbers: string[];
-    emails: string[];
+    phoneNumber: string;
+    email: string;
 }
 
 export interface ComponentCategory {
@@ -23,4 +23,6 @@ export interface ComponentCategory {
     specificationFields: string[];
 }
 
-export type ComponentD = ComputerComponent<ComponentManufacturer, ComponentCategory>;
+export interface ComponentD extends ComputerComponent<ComponentManufacturer, ComponentCategory> {
+    isDefault?: boolean;
+}

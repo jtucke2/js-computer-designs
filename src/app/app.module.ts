@@ -7,6 +7,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { GlobalModule } from './global/global.module';
 import { UserModule } from './user/user.module';
 import { RouterModule } from '@angular/router';
+import { MatDialogModule } from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { RouterModule } from '@angular/router';
     BrowserAnimationsModule,
     GlobalModule,
     UserModule,
+    MatDialogModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

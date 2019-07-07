@@ -105,7 +105,12 @@ export class InventoryService {
           // ~~~ Denormalized Components ~~~
           // tslint:disable-next-line: forin
           for (const category in plat.components) {
-            compsD[category] = plat.components[category].map(c => components.find(comp => comp.modelNumber === c));
+            compsD[category] = plat.components[category]
+              .map(c => components.find(comp => comp.modelNumber === c))
+              .map(c => ({
+                ...c,
+                isDefault: plat.defaultComponents[category] === c.modelNumber ? true : false
+              }));
           }
 
           retVal.components = compsD;

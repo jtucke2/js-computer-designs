@@ -1,1 +1,43 @@
-<p>platforms works!</p>
+<div id="platformsComponent">
+    <br>
+    <p>
+      <button mat-raised-button color="accent" (click)="openDialog()">Add Base Platform</button>
+    </p>
+    <mat-accordion>
+      <mat-expansion-panel *ngFor="let p of inventoryService.fullPlatforms$ | async; trackBy: trackById">
+        <mat-expansion-panel-header>
+          <mat-panel-title>{{ p.name }}</mat-panel-title>
+          <mat-panel-description>{{ p.active ? 'Active' : 'Inactive' }}</mat-panel-description>
+        </mat-expansion-panel-header>
+
+        <div>
+          <mat-checkbox [(ngModel)]="p.active">Active</mat-checkbox>          
+        </div>
+
+        <img src="{{ p.image }}" alt="{{ p.name }}" width="150px">
+        <mat-form-field class="full-width">
+          <input type="text" matInput [(ngModel)]="p.description" placeholder="Description">
+        </mat-form-field>       
+
+        <mat-form-field class="full-width">
+          <input type="number" matInput [(ngModel)]="p.purchasePrice" placeholder="Purchase Price">
+        </mat-form-field>
+
+        <mat-form-field class="full-width">
+          <input type="number" matInput [(ngModel)]="p.baseSalePrice" placeholder="Sale Price">
+        </mat-form-field>
+
+        <mat-form-field class="full-width">
+          <input type="text" matInput [(ngModel)]="p.image" placeholder="Image URL">
+        </mat-form-field>
+
+        <h3 class="mat-h3">Components</h3>
+        <div style="padding-left: 24px;">
+          <components-list [componentsObj]="p.components" [platformId]="p.id"></components-list>
+        </div>
+
+        <button mat-raised-button color="primary">Save Changes</button>
+      </mat-expansion-panel>
+    </mat-accordion>
+    
+</div>

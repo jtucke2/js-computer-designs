@@ -1,0 +1,67 @@
+<form [formGroup]="adminService.platformForm" (ngSubmit)="save()">
+
+    <h2 class="mat-h2 flex flexItemsCenter" mat-dialog-title>
+        <span>Add Base Platform</span>
+        <span class="spacer">&nbsp;</span>
+        <button type="button" mat-icon-button (click)="cancel()">
+            <i class="material-icons">close</i>
+        </button>
+    </h2>   
+    
+    <div mat-dialog-content>
+        <mat-horizontal-stepper #stepper>
+
+            <mat-step label="Platform Information">
+                <p class="text-muted"><small>This is the base information for the new base platform.</small></p>                
+                <mat-form-field class="full-width">
+                    <input matInput formControlName="name" placeholder="Name" type="text">
+                    <mat-error *ngIf="adminService.platformForm.get('name').hasError('required')">Name is <strong>required</strong></mat-error>
+                </mat-form-field>
+                <mat-form-field class="full-width">
+                    <input matInput formControlName="description" placeholder="Description" type="text">
+                    <mat-error *ngIf="adminService.platformForm.get('description').hasError('required')">Description is <strong>required</strong></mat-error>
+                </mat-form-field>
+                <mat-form-field class="full-width">
+                    <input matInput formControlName="baseSalePrice" placeholder="Sale Price" type="number">
+                    <mat-error *ngIf="adminService.platformForm.get('baseSalePrice').hasError('required')">Sale Price is <strong>required</strong></mat-error>
+                </mat-form-field>
+                <mat-form-field class="full-width">
+                    <input matInput formControlName="purchasePrice" placeholder="Purchase Price" type="number">
+                    <mat-error *ngIf="adminService.platformForm.get('purchasePrice').hasError('required')">Purchase Price is <strong>required</strong></mat-error>
+                </mat-form-field>
+                <mat-form-field class="full-width">
+                    <input matInput formControlName="image" placeholder="Image URL" type="text">
+                    <mat-error *ngIf="adminService.platformForm.get('image').hasError('required')">Image URL is <strong>required</strong></mat-error>
+                </mat-form-field>            
+                <mat-checkbox formControlName="active">Active</mat-checkbox>
+                <p class="text-right mt-5">
+                    <button type="button" mat-button matStepperNext>Next</button>
+                </p>
+            </mat-step>
+
+            <mat-step label="Component Categories">
+                <p class="text-muted"><small>This contains the component categories applicable to the platform.</small></p>
+                <p class="text-right mt-5">
+                    <button type="button" mat-button matStepperPrevious>Back</button>
+                    <button type="button" mat-button matStepperNext>Next</button>
+                </p>
+            </mat-step>
+
+            <mat-step label="Components">
+                <p class="text-muted"><small>This contains the available and default components for each category.</small></p>
+                <p class="text-right mt-5">
+                    <button type="button" mat-button matStepperPrevious>Back</button>
+                    <button type="submit" mat-raised-button color="primary" [disabled]="adminService.platformForm.status !== 'VALID'">Save</button>
+                </p>
+            </mat-step>
+
+        </mat-horizontal-stepper>
+    </div>
+
+    <!-- <div mat-dialog-actions class="text-right">
+        <button mat-button (click)="cancel()">Cancel</button>
+        <span>&nbsp;</span>
+        <button mat-raised-button color="primary" [disabled]="adminService.platformForm.status !== 'VALID'">Save</button>
+    </div> -->
+
+</form>

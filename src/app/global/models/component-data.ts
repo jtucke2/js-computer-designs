@@ -17,22 +17,14 @@ export const defaultComponentManufacturers: ComponentManufacturer[] = [
     {
         name: 'Intel',
         address: '123 Main st. Silicon Valley 90210',
-        phoneNumbers: [
-            '(555) 555-1234'
-        ],
-        emails: [
-            'support@intel.com'
-        ]
+        phoneNumber: '(555) 555-1234',
+        email: 'support@intel.com'
     },
     {
         name: 'AMD',
         address: '456 Main st. Silicon Valley 90210',
-        phoneNumbers: [
-            '(555) 555-5678'
-        ],
-        emails: [
-            'support@amd.com'
-        ]
+        phoneNumber: '(555) 555-5678',
+        email: 'support@amd.com'
     },
 ];
 

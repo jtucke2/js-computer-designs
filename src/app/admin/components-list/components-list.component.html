@@ -1,0 +1,41 @@
+<div class="componentsListComponent">
+    <div *ngFor="let cl of componentsList">
+        <h4 class="mat-h4 text-primary">{{ cl.category }}</h4>
+        <button mat-button color="primary">Add {{ cl.category }}</button>
+        <div *ngFor="let c of cl.components; trackBy: trackComponents">
+            <table>
+                <tbody>
+                    <tr>
+                      <th class="text-muted text-right">Manufacturer:&nbsp;</th>
+                      <td>{{ c.manufacturer?.name }}</td>
+                    </tr>
+                    <tr>
+                      <th class="text-muted text-right">Model:&nbsp;</th>
+                      <td>{{ c.model }}</td>
+                    </tr>
+                    <tr>
+                      <th class="text-muted text-right">Model Number:&nbsp;</th>
+                      <td>{{ c.modelNumber }}</td>
+                    </tr>
+                    <tr>
+                      <th class="text-muted text-right">Purchase Price:&nbsp;</th>
+                      <td>{{ c.purchasePrice |currency }}</td>
+                    </tr>
+                    <tr>
+                      <th class="text-muted text-right">Sale Price:&nbsp;</th>
+                      <td>{{ c.salePrice |currency }}</td>
+                    </tr>
+                    <tr>
+                      <th class="text-muted text-right">Actions:&nbsp;</th>
+                      <td>
+                          <button mat-raised-button *ngIf="!c.isDefault" (click)="makeDefaultComponent(cl.category, c.modelNumber)">Make Default</button>
+                          &nbsp;
+                          <button mat-raised-button>Remove From Platform</button>
+                      </td>
+                    </tr>
+                </tbody>
+            </table>
+            <br>
+        </div>
+    </div>
+</div>

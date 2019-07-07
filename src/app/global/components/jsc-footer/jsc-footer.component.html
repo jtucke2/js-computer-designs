@@ -8,7 +8,7 @@
             <div class="col-md-3 col-sm-6 col-xs-12">
                 <div class="mat-h3 text-muted">Products</div>
                 <ul>
-                    <li *ngFor="let p of inventoryService.activePlatforms" class="text-muted">{{ p.name }}</li>
+                    <li *ngFor="let p of inventoryService.activePlatforms$ | async" class="text-muted">{{ p.name }}</li>
                 </ul>
             </div>
             <div class="col-md-3 col-sm-6 col-xs-12">
@@ -33,7 +33,7 @@
                 <button mat-stroked-button color="primary">Subscribe</button>
             </div>
         </div>
-        <hr>
+        <mat-divider></mat-divider>
         <br>
         <div class="row">
             <div class="col-12 flex flexItemsCenter">

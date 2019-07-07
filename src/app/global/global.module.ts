@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { MatToolbarModule, MatButtonModule, MatCardModule, MatMenuModule, MatIconModule } from '@angular/material';
+import { MatToolbarModule, MatButtonModule, MatCardModule, MatMenuModule, MatIconModule, MatDividerModule } from '@angular/material';
 
 import { LandingPageComponent } from './components/landing-page/landing-page.component';
 import { NavigationComponent } from './components/navigation/navigation.component';
@@ -22,6 +22,7 @@ import { AuthGuard } from './services/auth.guard';
     MatCardModule,
     MatMenuModule,
     MatIconModule,
+    MatDividerModule,
   ],
   exports: [
     LandingPageComponent,

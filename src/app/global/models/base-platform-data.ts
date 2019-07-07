@@ -12,7 +12,8 @@ export const defaultPlatforms: BasePlatform[] = [
         active: true,
         components: {
             CPU: [
-                'BX80684I99900K'
+                'BX80684I99900K',
+                'BX80684I79700K'
             ]
         },
         defaultComponents: {
