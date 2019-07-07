@@ -23,6 +23,12 @@ export class UserService {
   public setUser(user: User) {
     this.user = user;
     localStorage.setItem('user', JSON.stringify(user));
+    this.loggedIn = true;
+  }
+
+  public addUser(user: User) {
+    this.userDb.push(user);
+    UserHelpers.syncUserDb(this.userDb);
   }
 
   public logout() {

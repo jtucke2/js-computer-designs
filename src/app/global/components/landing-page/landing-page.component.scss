@@ -36,3 +36,13 @@ section {
         flex-direction: row-reverse;
     }
 }
+
+@media screen and (max-width: 768px) {
+    .odd-section .row {
+        flex-direction: row !important;
+    }
+
+    .mat-display-2 {
+        margin-bottom: 10px;
+    }
+}

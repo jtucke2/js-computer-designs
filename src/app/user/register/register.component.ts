@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators, ValidatorFn, AbstractControl, ValidationErrors } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Observable, timer as observableTimer, merge, combineLatest } from 'rxjs';
-import { switchMap, map, skip  } from 'rxjs/operators';
+import { Observable, merge } from 'rxjs';
+import { map  } from 'rxjs/operators';
 
-import { AuthService, RegisterReturnData } from 'src/app/global/services/auth.service';
+import { AuthService } from 'src/app/global/services/auth.service';
 
 @Component({
   selector: 'register',
@@ -42,16 +42,8 @@ export class RegisterComponent implements OnInit {
   }
 
   public registerSubmit() {
-    // this.errorMessage = '';
-    // this.authService.register(this.form.value)
-    //   .subscribe(
-    //     (user: RegisterReturnData) => {
-    //       this.router.navigate(['/home']);
-    //     },
-    //     (err) => {
-    //       this.errorMessage = err.error.message;
-    //     }
-    //   );
+    this.authService.register(this.form.value);
+    this.router.navigate(['/home']);
   }
 
   private validateEmail(emailCtrl: FormControl): Observable<any> {
@@ -77,7 +69,6 @@ export class RegisterComponent implements OnInit {
   private validatePasswordConfirm() {
     const control = this.form.get('password');
     const matchingControl = this.form.get('password_confirm');
-    console.log(control);
 
     if (matchingControl.errors && !matchingControl.errors.pw_match) {
       return;

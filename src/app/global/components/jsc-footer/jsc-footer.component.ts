@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+import { InventoryService } from '../../services/inventory.service';
+
 @Component({
   selector: 'jsc-footer',
   templateUrl: './jsc-footer.component.html',
@@ -7,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class JscFooterComponent implements OnInit {
 
-  constructor() { }
+  constructor(public inventoryService: InventoryService) { }
 
   ngOnInit() {
   }

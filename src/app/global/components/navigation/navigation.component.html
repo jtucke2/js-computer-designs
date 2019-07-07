@@ -1,8 +1,25 @@
 <mat-toolbar id="navComponent" color="primary" class="mat-elevation-z5">
   <a mat-icon-button routerLink="/">
-    <img src="./assets/images/nodejs-seeklogo.com.svg" alt="JS Logo" height="30px">
+    <img src="./assets/images/nodejs-seeklogo-black.com.svg" alt="JS Logo" height="30px">
   </a>
   <span class="spacer">&nbsp;</span>
+
+  <a mat-button routerLink="/admin"
+    *ngIf="userService.loggedIn && userService.user && userService.user.role === 'ADMIN'">Admin</a>
+
+  <button mat-icon-button [matMenuTriggerFor]="menu" *ngIf="userService.loggedIn">
+    <i class="material-icons">account_circle</i>
+  </button>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item disabled="true" *ngIf="userService.loggedIn">
+      <span>{{ userService.user?.email }}</span>
+    </button>
+    <a mat-menu-item routerLink="/home" (click)="userService.logout()">
+      <mat-icon>exit_to_app</mat-icon>
+      <span>Sign out</span>
+    </a>
+  </mat-menu>
+
   <a mat-button routerLink="/user/login" *ngIf="!userService.loggedIn">Sign in</a>
   <a mat-button routerLink="/user/register" *ngIf="!userService.loggedIn">Register</a>
 </mat-toolbar>

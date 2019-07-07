@@ -1,3 +1,51 @@
 <div id="footerComponent">
-    Footer
+    <div id="top">&nbsp;</div>
+    <br>
+    <br>
+    <br>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3 col-sm-6 col-xs-12">
+                <div class="mat-h3 text-muted">Products</div>
+                <ul>
+                    <li *ngFor="let p of inventoryService.activePlatforms" class="text-muted">{{ p.name }}</li>
+                </ul>
+            </div>
+            <div class="col-md-3 col-sm-6 col-xs-12">
+                <div class="mat-h3 text-muted">Company</div>
+                <ul>
+                    <li class="text-muted">Contact</li>
+                    <li class="text-muted">About</li>
+                    <li class="text-muted">Careers</li>
+                    <li class="text-muted">Disclaimer</li>
+                </ul>
+            </div>
+            <div class="col-md-3 col-sm-6 col-xs-12">
+                <div class="mat-h3 text-muted">Support</div>
+                <ul>
+                    <li class="text-muted">Customer Support</li>
+                    <li class="text-muted">FAQs</li>
+                </ul>
+            </div>
+            <div class="col-md-3 col-sm-6 col-xs-12">
+                <div class="mat-h3 text-muted">Newsletter</div>
+                <p class="text-muted">Get access to exlusive offers.</p>
+                <button mat-stroked-button color="primary">Subscribe</button>
+            </div>
+        </div>
+        <hr>
+        <br>
+        <div class="row">
+            <div class="col-12 flex flexItemsCenter">
+                <div class="text-muted">&copy; JS Computer Designs 2019</div>
+                <div class="spacer">&nbsp;</div>
+                <div class="text-muted cursorPointer">Privacy Policy&nbsp;&nbsp;|&nbsp;&nbsp;Site
+                  map&nbsp;&nbsp;|&nbsp;&nbsp;Legal
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+    <br>
+    <br>
 </div>

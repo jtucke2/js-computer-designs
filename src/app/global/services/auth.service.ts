@@ -30,12 +30,10 @@ export class AuthService {
 
   constructor(private userService: UserService) { }
 
-  // public register(userData: RegisterData): Observable<RegisterReturnData> {
-  //   return this.apiService.post(`${this.baseUrl}/register`, userData)
-  //     .pipe(
-  //       tap((dat) => dat.user ? this.userService.setUser(dat.user) : null)
-  //     );
-  // }
+  public register(userData: User) {
+    this.userService.addUser(userData);
+    this.userService.setUser(userData);
+  }
 
   // public login(loginData: { email: string, password: string }): Observable<LoginReturnData> {
   //   return this.apiService.post(`${this.baseUrl}/login`, loginData)

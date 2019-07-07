@@ -3,6 +3,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
 import { AuthService, LoginReturnData } from 'src/app/global/services/auth.service';
+import { UserService } from 'src/app/global/services/user.service';
 
 @Component({
   selector: 'login',
@@ -18,6 +19,7 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private authService: AuthService,
+    private userService: UserService,
     private router: Router
   ) { }
 
@@ -25,16 +27,16 @@ export class LoginComponent implements OnInit {
   }
 
   public loginSubmit() {
-    console.log(this.form.value);
-    // this.authService.login(this.form.value)
-    //   .subscribe(
-    //     (dat: LoginReturnData) => {
-    //       this.router.navigate(['/home']);
-    //     },
-    //     (err) => {
-    //       this.errorMessage = err.error.message;
-    //     }
-    //   );
+    const { email, password } = this.form.value;
+    const user = this.userService.userDb.find(u => u.email === email);
+    if (!user) {
+      this.errorMessage = 'Email not found';
+    } else if (user.password !== password) {
+      this.errorMessage = 'Incorrect password';
+    } else {
+      this.userService.setUser(user);
+      this.router.navigate(['home']);
+    }
   }
 
 }
