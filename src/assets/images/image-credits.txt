@@ -13,3 +13,5 @@ Carbide-600Q-01.png = https://www.corsair.com/medias/sys_master/images/images/h7
 Carbide-SPEC-M2-002.png = https://www.corsair.com/medias/sys_master/images/images/hb2/h67/9112375427102/-CC-9011087-WW-Gallery-Carbide-SPEC-M2-002.png
 
 1000D-Built-27.png = https://www.corsair.com/medias/sys_master/images/images/ha6/h5b/9112468783134/-CC-9011148-WW-Gallery-1000D-Built-27.png
+
+esports.jpg = https://www.pexels.com/photo/man-playing-game-on-personal-computer-929831/

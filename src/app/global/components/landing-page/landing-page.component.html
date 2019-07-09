@@ -11,7 +11,7 @@
       <h1 class="mat-display-3" id="heroText">Power. At your fingertips.</h1>
     </div>
     <div>
-      <button mat-raised-button color="accent">Shop Now</button>
+      <a mat-raised-button color="accent" routerLink="/store/compare">Shop Now</a>
     </div>
   </div>
 
@@ -28,7 +28,7 @@
             <p>Starting at {{ p.startingPrice | currency }}</p>
           </div>
           <div>
-            <button mat-raised-button [color]="!odd ? 'primary' : 'accent'">Customize</button>
+            <a mat-raised-button [color]="!odd ? 'primary' : 'accent'" routerLink="/store/customize/{{ p.id }}">Customize</a>
           </div>
         </div>
       </div>

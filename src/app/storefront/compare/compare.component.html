@@ -1,0 +1,48 @@
+<div id="hero">
+    <div class="mat-display-3" id="heroText">Power. Value. Productivity.</div>
+</div>
+<div class="mt-30 mb-10">&nbsp;</div>
+<div id="compareComponent" class="container">
+    <div class="row">
+        <div class="col-md-4 col-sm-12 text-center" *ngFor="let p of inventoryService.fullPlatforms$ | async; odd as odd">
+            <mat-card>
+                <mat-card-content>                    
+                    <div class="mat-h1" style="font-weight: 400;">{{ p.name }}</div>
+                    <p class="text-{{ !odd ? 'primary' : 'accent' }}">{{ p.description }}</p>
+                    <p>Starting at {{ p.startingPrice | currency }}</p>
+                    <div class="mt-5">
+                        <a mat-raised-button [color]="!odd ? 'primary' : 'accent'" routerLink="/store/customize/{{ p.id }}">Customize</a>
+                    </div>
+                    <div class="mt-5">
+                        <img src="{{ p.image }}" alt="{{ p.name }}" width="80%">
+                    </div>
+                    <div class="comparison">
+                        <mat-list class="text-left">
+                            <mat-divider></mat-divider>
+                            <mat-list-item>
+                            <h4 matLine class="text-muted">Warranty</h4>
+                              <p matLine>Industry leading 3 year warranty</p>
+                            </mat-list-item>
+                            <mat-divider></mat-divider>
+                            <mat-list-item>
+                                <h4 matLine class="text-muted">CPU</h4>
+                                <p matLine>Up to {{ getTopCpu(p) }}</p>
+                            </mat-list-item>
+                            <mat-divider></mat-divider>
+                            <mat-list-item>
+                              <h4 matLine class="text-muted">GPU</h4>
+                              <p matLine>Up to {{ getTopGpu(p) }}</p>
+                            </mat-list-item>
+                            <mat-divider></mat-divider>
+                            <mat-list-item>
+                              <h4 matLine class="text-muted">RAM</h4>
+                              <p matLine>Up to {{ getTopRam(p) }}</p>
+                            </mat-list-item>
+                        </mat-list>
+                    </div>
+              </mat-card-content>
+            </mat-card>
+        </div>
+    </div>
+</div>
+<div class="mt-30 mb-10">&nbsp;</div>

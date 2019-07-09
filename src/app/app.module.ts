@@ -8,6 +8,7 @@ import { GlobalModule } from './global/global.module';
 import { UserModule } from './user/user.module';
 import { RouterModule } from '@angular/router';
 import { MatDialogModule } from '@angular/material';
+import { StorefrontModule } from './storefront/storefront.module';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { MatDialogModule } from '@angular/material';
     GlobalModule,
     UserModule,
     MatDialogModule,
+    StorefrontModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

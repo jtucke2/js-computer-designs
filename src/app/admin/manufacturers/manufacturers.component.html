@@ -1,1 +1,28 @@
-<p>manufacturers works!</p>
+<div id="manufacturersComponent">
+    <br>
+    <p>
+      <button mat-raised-button color="accent" (click)="openDialog()">Add Manufacturer</button>
+    </p>
+    <mat-accordion>
+      <mat-expansion-panel *ngFor="let m of inventoryService.componentManufacturers$ | async">
+
+        <mat-expansion-panel-header>
+          <mat-panel-title>{{ m.name }}</mat-panel-title>
+        </mat-expansion-panel-header>
+
+        <ng-template matExpansionPanelContent>
+            <mat-form-field class="full-width">
+                <textarea matInput [(ngModel)]="m.address" placeholder="Address"></textarea>
+            </mat-form-field>
+            <mat-form-field class="full-width">
+                <input matInput [(ngModel)]="m.phoneNumber" placeholder="Phone Number">
+            </mat-form-field>
+            <mat-form-field class="full-width">
+                <input matInput [(ngModel)]="m.email" placeholder="Email">
+            </mat-form-field>
+            <button mat-raised-button color="primary" (click)="saveChanges(m)">Save Changes</button>
+        </ng-template>
+
+      </mat-expansion-panel>
+    </mat-accordion>
+</div>

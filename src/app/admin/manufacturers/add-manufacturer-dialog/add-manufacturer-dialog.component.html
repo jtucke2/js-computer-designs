@@ -1,0 +1,35 @@
+<form [formGroup]="form" (ngSubmit)="save()">
+  <h2 class="mat-h2 flex flexItemsCenter" mat-dialog-title>Add Manufacturer</h2>
+
+  <div mat-dialog-content>
+
+    <mat-form-field class="full-width">
+      <input matInput formControlName="name" placeholder="Name">
+      <mat-error *ngIf="form.get('name').hasError('required')">Name is
+        <strong>required</strong></mat-error>
+    </mat-form-field>
+    <mat-form-field class="full-width">
+      <textarea matInput formControlName="address" placeholder="Address"></textarea>
+      <mat-error *ngIf="form.get('address').hasError('required')">Address is
+        <strong>required</strong></mat-error>
+    </mat-form-field>
+    <mat-form-field class="full-width">
+      <input matInput formControlName="phoneNumber" placeholder="Phone Number">
+      <mat-error *ngIf="form.get('phoneNumber').hasError('required')">Phone Number is
+        <strong>required</strong></mat-error>
+    </mat-form-field>
+    <mat-form-field class="full-width">
+      <input matInput formControlName="email" placeholder="Email" type="email">
+      <mat-error *ngIf="form.get('email').hasError('required')">Email is
+        <strong>required</strong></mat-error>
+      <mat-error *ngIf="form.get('email').hasError('email')">Email must be a valid Email address</mat-error>
+    </mat-form-field>
+   
+  </div>
+
+  <div mat-dialog-actions class="text-right">
+    <button mat-button (click)="cancel()">Cancel</button>
+    <span>&nbsp;</span>
+    <button type="submit" mat-raised-button color="primary" [disabled]="form.status !== 'VALID'">Save</button>
+  </div>
+</form>

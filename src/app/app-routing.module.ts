@@ -6,10 +6,12 @@ import { userRoutes } from './user/user.routes';
 import { adminRoutes } from './admin/admin.routes';
 import { UserRoles } from './global/models/user';
 import { AuthGuard } from './global/services/auth.guard';
+import { storeFrontRoutes } from './storefront/storefront.routes';
 
 const routes: Routes = [
   { path: 'home', component: LandingPageComponent },
   { path: 'user', children: userRoutes },
+  { path: 'store', children: storeFrontRoutes },
   {
     path: 'admin',
     children: adminRoutes,

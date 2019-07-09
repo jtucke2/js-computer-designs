@@ -4,6 +4,8 @@
   </a>
   <span class="spacer">&nbsp;</span>
 
+  <a mat-button routerLink="/store/compare">Store</a>
+
   <a mat-button routerLink="/admin"
     *ngIf="userService.loggedIn && userService.user && userService.user.role === 'ADMIN'">Admin</a>
 

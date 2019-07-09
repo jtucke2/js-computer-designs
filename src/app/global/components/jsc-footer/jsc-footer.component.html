@@ -6,13 +6,13 @@
     <div class="container">
         <div class="row">
             <div class="col-md-3 col-sm-6 col-xs-12">
-                <div class="mat-h3 text-muted">Products</div>
+                <div class="mat-h3 text-primary">Products</div>
                 <ul>
-                    <li *ngFor="let p of inventoryService.activePlatforms$ | async" class="text-muted">{{ p.name }}</li>
+                    <li *ngFor="let p of inventoryService.activePlatforms$ | async" class="text-muted"  routerLink="/store/customize/{{ p.id }}">{{ p.name }}</li>
                 </ul>
             </div>
             <div class="col-md-3 col-sm-6 col-xs-12">
-                <div class="mat-h3 text-muted">Company</div>
+                <div class="mat-h3 text-primary">Company</div>
                 <ul>
                     <li class="text-muted">Contact</li>
                     <li class="text-muted">About</li>
@@ -21,14 +21,14 @@
                 </ul>
             </div>
             <div class="col-md-3 col-sm-6 col-xs-12">
-                <div class="mat-h3 text-muted">Support</div>
+                <div class="mat-h3 text-primary">Support</div>
                 <ul>
                     <li class="text-muted">Customer Support</li>
                     <li class="text-muted">FAQs</li>
                 </ul>
             </div>
             <div class="col-md-3 col-sm-6 col-xs-12">
-                <div class="mat-h3 text-muted">Newsletter</div>
+                <div class="mat-h3 text-primary">Newsletter</div>
                 <p class="text-muted">Get access to exlusive offers.</p>
                 <button mat-stroked-button color="primary">Subscribe</button>
             </div>

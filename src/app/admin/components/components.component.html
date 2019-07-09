@@ -12,36 +12,36 @@
               <mat-panel-description>{{ c.modelNumber }}</mat-panel-description>
             </mat-expansion-panel-header>
 
-            <mat-form-field class="full-width">
-                <input matInput [(ngModel)]="c.model" placeholder="Model">
-            </mat-form-field>
+            <ng-template matExpansionPanelContent>
+              <mat-form-field class="full-width">
+                  <input matInput [(ngModel)]="c.model" placeholder="Model">
+              </mat-form-field>
 
-            <mat-form-field class="full-width">
-              <input type="number" matInput [(ngModel)]="c.purchasePrice" placeholder="Purchase Price">
-            </mat-form-field>
+              <mat-form-field class="full-width">
+                <input type="number" matInput [(ngModel)]="c.purchasePrice" placeholder="Purchase Price">
+              </mat-form-field>
 
-            <mat-form-field class="full-width">
-              <input type="number" matInput [(ngModel)]="c.salePrice" placeholder="Sale Price">
-            </mat-form-field>
+              <mat-form-field class="full-width">
+                <input type="number" matInput [(ngModel)]="c.salePrice" placeholder="Sale Price">
+              </mat-form-field>
 
-            <mat-form-field class="full-width">
-              <input type="number" matInput [(ngModel)]="c.inventoryLevel" placeholder="Inventory Level">
-            </mat-form-field>
+              <mat-form-field class="full-width">
+                <input type="number" matInput [(ngModel)]="c.inventoryLevel" placeholder="Inventory Level">
+              </mat-form-field>
 
-            <mat-form-field class="full-width" *ngIf="c.category !== 'Power Supply'">
-              <input type="number" matInput [(ngModel)]="c.requiredPower" placeholder="Required Power">
-            </mat-form-field>
+              <mat-form-field class="full-width" *ngIf="c.category !== 'Power Supply'">
+                <input type="number" matInput [(ngModel)]="c.requiredPower" placeholder="Required Power">
+              </mat-form-field>
 
-            <h5 class="mat-h5 text-accent">Component Specifications</h5>            
+              <h5 class="mat-h5 text-accent">Component Specifications</h5>            
 
-            <div *ngFor="let sf of c.specificationFields; index as i">
-                <mat-form-field class="full-width">
-                    <input matInput [(ngModel)]="c.specificationFields[i].value" placeholder="{{ c.specificationFields[i].name }}">
-                </mat-form-field>
-            </div>
-
-
-            <button mat-raised-button color="primary" (click)="saveChanges(c)">Save Changes</button>
+              <div *ngFor="let sf of c.specificationFields; index as i">
+                  <mat-form-field class="full-width">
+                      <input matInput [(ngModel)]="c.specificationFields[i].value" placeholder="{{ c.specificationFields[i].name }}">
+                  </mat-form-field>
+              </div>
+              <button mat-raised-button color="primary" (click)="saveChanges(c)">Save Changes</button>
+            </ng-template>
           </mat-expansion-panel>
         </mat-accordion>
     </div>    

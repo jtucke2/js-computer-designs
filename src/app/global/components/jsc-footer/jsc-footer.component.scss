@@ -6,6 +6,15 @@
 
 #footerComponent {
     background: mat-color($mat-grey, 200);
+
+    .mat-h3.text-primary::after {
+        content: "";
+        display: block;
+        width: 30px;
+        height: 2px;
+        margin-top: 5px;
+        background-color: rgba($accent, 0.5);
+    }
 }
 
 ul {

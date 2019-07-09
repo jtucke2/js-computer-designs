@@ -1,0 +1,76 @@
+<form id="customizeComponent" [formGroup]="form">
+    <div class="mt-30 mb-10">&nbsp;</div>
+  <div class="container">
+
+    <div class="row">
+        <div class="col-12">
+            <div class="mat-h1">Customize Your PC</div>
+        </div>
+    </div>
+
+    <div class="row mt-5 mb-5" *ngIf="errorMessage !== ''">
+      <div class="col-12">
+        <div class="alert alert-danger">{{ errorMessage }}</div>
+      </div>
+    </div>
+
+    <div *ngIf="platform$ | async as p">
+      <div *ngIf="errorMessage === ''" class="row">
+
+        <div class="col-md-8">
+          <mat-card>
+            <mat-card-content>
+              <mat-vertical-stepper>
+                <mat-step *ngFor="let cat of categories; first as first; last as last" label="{{ cat }}{{ compNumToName(form.get(cat).value) }}">
+
+                    <mat-radio-group class="flex flexCol" formControlName="{{ cat }}">
+                        <mat-radio-button *ngFor="let c of p.components[cat]; index as i" class="mb-6" [value]="c.modelNumber">
+                            <div class="mat-h4">
+                                <span>{{ c.manufacturer.name }} {{ c.model }}&nbsp;&nbsp;&nbsp;</span>
+                                <span *ngIf="c.salePrice > selectedPrices[cat]">+</span>
+                                <span *ngIf="c.salePrice !== selectedPrices[cat]">{{ c.salePrice - selectedPrices[cat] | currency }}</span>
+                            </div>
+                            <ul>
+                                <li *ngFor="let sf of c.specificationFields" class="text-muted">
+                                <strong>{{ sf.name }}:&nbsp;</strong>
+                                <span>{{ sf.value }}</span>
+                                </li>
+                            </ul>
+                        </mat-radio-button>
+                    </mat-radio-group>
+
+                    <div class="actions">
+                        <button mat-raised-button matStepperNext *ngIf="!last">Next</button>
+                        <button type="button" mat-raised-button color="accent" [disabled]="form.status !== 'VALID'" *ngIf="last" (click)="addToCart(p)">Add to Cart</button>
+                        <button mat-button matStepperPrevious *ngIf="!first">Back</button>
+                    </div>
+                </mat-step>
+              </mat-vertical-stepper>
+            </mat-card-content>
+          </mat-card>
+        </div>
+
+        <div class="col-md-4">
+          <mat-card>
+            <mat-card-content>
+              <div class="text-center">
+                <img src="{{ p.image }}" alt="{{ p.name }}" width="80%">
+                <div class="mat-h3" style="font-weight: 400;">{{ p.name }}</div>
+              </div>
+              <h4 class="mat-h4 text-muted">Subtotal</h4>
+              <p>{{ subTotal | currency }}</p>
+              <h4 class="mat-h4 text-muted">Shipping</h4>
+              <p>6-8 Business Days</p>
+              <p>
+                <button type="button" mat-raised-button color="accent" [disabled]="form.status !== 'VALID'" (click)="addToCart(p)">Add to Cart</button>
+              </p>
+            </mat-card-content>
+          </mat-card>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+  <div class="mt-30 mb-10">&nbsp;</div>
+</form>
