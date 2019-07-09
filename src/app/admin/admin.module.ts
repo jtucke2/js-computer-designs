@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LayoutComponent } from './layout/layout.component';
-import { MatTabsModule, MatExpansionModule, MatInputModule, MatCheckboxModule, MatButtonModule, MatRadioModule, MatStepperModule } from '@angular/material';
+import { MatTabsModule, MatExpansionModule, MatInputModule, MatCheckboxModule, MatButtonModule, MatRadioModule, MatStepperModule, MatSelectModule } from '@angular/material';
 import { AdminService } from './admin.service';
 import { PlatformsComponent } from './platforms/platforms.component';
 import { RouterModule } from '@angular/router';
@@ -12,6 +12,7 @@ import { ComponentsComponent } from './components/components.component';
 import { ComponentsListComponent } from './components-list/components-list.component';
 import { ComponentFormComponent } from './component-form/component-form.component';
 import { AddPlatformDialogComponent } from './platforms/add-platform-dialog/add-platform-dialog.component';
+import { AddComponentDialogComponent } from './platforms/add-component-dialog/add-component-dialog.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { AddPlatformDialogComponent } from './platforms/add-platform-dialog/add-
     ComponentsComponent,
     ComponentsListComponent,
     ComponentFormComponent,
-    AddPlatformDialogComponent
+    AddPlatformDialogComponent,
+    AddComponentDialogComponent
   ],
   imports: [
     CommonModule,
@@ -36,15 +38,18 @@ import { AddPlatformDialogComponent } from './platforms/add-platform-dialog/add-
     MatButtonModule,
     MatRadioModule,
     MatStepperModule,
+    MatSelectModule,
   ],
   providers: [
     AdminService
   ],
   entryComponents: [
-    AddPlatformDialogComponent
+    AddPlatformDialogComponent,
+    AddComponentDialogComponent,
   ],
   exports: [
-    AddPlatformDialogComponent
+    AddPlatformDialogComponent,
+    AddComponentDialogComponent,
   ]
 })
 export class AdminModule { }

@@ -1,4 +1,5 @@
 import { BasePlatform } from './base-platform';
+import { Category } from './categories.enum';
 
 export const defaultPlatforms: BasePlatform[] = [
     {
@@ -11,13 +12,13 @@ export const defaultPlatforms: BasePlatform[] = [
         image: './assets/images/1000D-Built-27.png',
         active: true,
         components: {
-            CPU: [
+            [Category.CPU]: [
                 'BX80684I99900K',
                 'BX80684I79700K'
             ]
         },
         defaultComponents: {
-            CPU: 'BX80684I99900K'
+            [Category.CPU]: 'BX80684I99900K'
         }
     },
     {
@@ -30,13 +31,13 @@ export const defaultPlatforms: BasePlatform[] = [
         image: './assets/images/570X-RGB-MB-01-RED.png',
         active: true,
         components: {
-            CPU: [
+            [Category.CPU]: [
                 'YD270XBGAFBOX',
                 'YD260XBCAFBOX'
             ]
         },
         defaultComponents: {
-            CPU: 'YD270XBGAFBOX'
+            [Category.CPU]: 'YD270XBGAFBOX'
         }
     },
     {
@@ -49,13 +50,13 @@ export const defaultPlatforms: BasePlatform[] = [
         image: './assets/images/Carbide-600Q-01.png',
         active: true,
         components: {
-            CPU: [
+            [Category.CPU]: [
                 'YD295XA8AFWOF',
                 'YD299XAZAFWOF'
             ]
         },
         defaultComponents: {
-            CPU: 'YD295XA8AFWOF'
+            [Category.CPU]: 'YD295XA8AFWOF'
         }
     },
 ];

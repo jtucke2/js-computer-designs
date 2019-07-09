@@ -1,0 +1,15 @@
+<h2 class="mat-h2 flex flexItemsCenter" mat-dialog-title>Add {{ category }}s</h2>
+
+<div mat-dialog-content>
+    <mat-form-field class="full-width">
+        <mat-select multiple [formControl]="form">
+            <mat-option *ngFor="let c of components$ | async" [value]="c.modelNumber">{{ c.manufacturer.name }} {{ c.model }}</mat-option>
+        </mat-select>
+    </mat-form-field>
+</div>
+
+<div mat-dialog-actions class="text-right">
+  <button mat-button (click)="cancel()">Cancel</button>
+  <span>&nbsp;</span>
+  <button mat-raised-button color="primary" (click)="save()">Save</button>
+</div>

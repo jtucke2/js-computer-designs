@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
 import { BasePlatform, BasePlatformD } from '../models/base-platform';
-import { ComputerComponent, ComponentManufacturer, ComponentCategory, ComponentD } from '../models/component';
+import { ComputerComponent, ComponentManufacturer, ComponentD } from '../models/component';
 import { BehaviorSubject, Observable, combineLatest } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { InventoryHelpers } from '../helpers/inventory-helpers';
+import { Category, Categories } from '../models/categories.enum';
 
 @Injectable({
   providedIn: 'root'
@@ -11,13 +12,13 @@ import { InventoryHelpers } from '../helpers/inventory-helpers';
 export class InventoryService {
   // ~~~ Normalized Data Structures ~~~
   public componentManufacturers$ = new BehaviorSubject<ComponentManufacturer[]>([]);
-  public componentCategories$ = new BehaviorSubject <ComponentCategory[]>([]);
   public components$ = new BehaviorSubject <ComputerComponent[]>([]);
   public platforms$ = new BehaviorSubject<BasePlatform[]>([]);
 
 
   // ~~~ Denormalized Data Structures ~~~
   public fullComponents$: Observable<ComponentD[]>;
+  public componentsByCategory$: Observable<{ category: Category, components: ComponentD[] }[]>;
   public fullPlatforms$: Observable<BasePlatformD[]>;
   public activePlatforms$: Observable<BasePlatformD[]>;
 
@@ -28,14 +29,6 @@ export class InventoryService {
 
   set componentManufacturers(componentManufacturers: ComponentManufacturer[]) {
     this.componentManufacturers$.next(componentManufacturers);
-  }
-
-  get componentCategories(): ComponentCategory[] {
-    return this.componentCategories$.getValue();
-  }
-
-  set componentCategories(componentCategories: ComponentCategory[]) {
-    this.componentCategories$.next(componentCategories);
   }
 
   get components(): ComputerComponent[] {
@@ -57,7 +50,6 @@ export class InventoryService {
   constructor() {
     // ~~~ Manufacturers and Cateogies first ~~~
     this.componentManufacturers = InventoryHelpers.initComponentManufacturers();
-    this.componentCategories = InventoryHelpers.initComponentCategories();
 
     // ~~~ Components second ~~~
     this.components = InventoryHelpers.initComponents();
@@ -68,24 +60,25 @@ export class InventoryService {
     // ~~~ Generate Denormalized Data Structures ~~~
     this.fullComponents$ = combineLatest(
         this.componentManufacturers$,
-        this.componentCategories$,
         this.components$
       )
       .pipe(
-        map(([componentManufacturers, componentCategories, components]) => {
+        map(([componentManufacturers, components]) => {
           return components.map(comp => {
             const retVal: ComponentD = {
               ...comp,
-              manufacturer: null,
-              category: null
+              manufacturer: null
             };
             const manu = componentManufacturers.find(m => m.name === comp.manufacturer);
             retVal.manufacturer = manu;
-            const category = componentCategories.find(cat => cat.name === comp.category);
-            retVal.category = category;
             return retVal;
           });
         })
+      );
+
+    this.componentsByCategory$ = this.fullComponents$
+      .pipe(
+        map((components) => Categories.map(category => ({ category, components: components.filter(comp => comp.category === category)})))
       );
 
     this.fullPlatforms$ = combineLatest(
@@ -119,7 +112,7 @@ export class InventoryService {
           retVal.startingPrice += Object.entries(plat.defaultComponents)
             .map(([cat, modNum]) => {
               const found = compsD[cat].find(c => c.modelNumber === modNum);
-              return found.salePrice;
+              return found && found.salePrice ? found.salePrice : 0;
             })
             .reduce((acc, curr) => acc + curr, 0);
 

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { InventoryService } from 'src/app/global/services/inventory.service';
 
 @Component({
   selector: 'component-form',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ComponentFormComponent implements OnInit {
 
-  constructor() { }
+  constructor(public inventoryService: InventoryService) { }
 
   ngOnInit() {
   }

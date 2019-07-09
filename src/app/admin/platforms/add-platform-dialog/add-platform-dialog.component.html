@@ -39,29 +39,30 @@
                 </p>
             </mat-step>
 
-            <mat-step label="Component Categories">
-                <p class="text-muted"><small>This contains the component categories applicable to the platform.</small></p>
-                <p class="text-right mt-5">
-                    <button type="button" mat-button matStepperPrevious>Back</button>
-                    <button type="button" mat-button matStepperNext>Next</button>
-                </p>
-            </mat-step>
-
             <mat-step label="Components">
-                <p class="text-muted"><small>This contains the available and default components for each category.</small></p>
-                <p class="text-right mt-5">
+                <p class="text-muted"><small>This contains the available and default components for each category.</small></p>                
+                <div *ngFor="let cc of inventoryService.componentsByCategory$ | async">
+                    <h4 class="mat-h4 text-primary">{{ cc.category}}</h4>
+                    <mat-form-field class="full-width" formGroupName="components">
+                      <mat-label>Available {{ cc.category}} Options</mat-label>
+                      <mat-select multiple formControlName="{{ cc.category }}">
+                        <mat-option *ngFor="let c of cc.components" [value]="c.modelNumber">{{ c.manufacturer.name }} {{ c.model }}</mat-option>
+                      </mat-select>
+                    </mat-form-field>
+                    <mat-form-field class="full-width" formGroupName="defaultComponents">
+                        <mat-label>Default {{ cc.category}} Option</mat-label>
+                        <mat-select formControlName="{{ cc.category }}">
+                            <mat-option *ngFor="let c of defaultComponentOptions$[cc.category] | async" [value]="c.modelNumber">{{ c.manufacturer }} {{ c.model }}</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+                <div class="text-right mt-5">
                     <button type="button" mat-button matStepperPrevious>Back</button>
                     <button type="submit" mat-raised-button color="primary" [disabled]="adminService.platformForm.status !== 'VALID'">Save</button>
-                </p>
+                </div>
             </mat-step>
 
         </mat-horizontal-stepper>
     </div>
-
-    <!-- <div mat-dialog-actions class="text-right">
-        <button mat-button (click)="cancel()">Cancel</button>
-        <span>&nbsp;</span>
-        <button mat-raised-button color="primary" [disabled]="adminService.platformForm.status !== 'VALID'">Save</button>
-    </div> -->
 
 </form>

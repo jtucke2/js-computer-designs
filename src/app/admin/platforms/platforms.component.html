@@ -16,6 +16,10 @@
 
         <img src="{{ p.image }}" alt="{{ p.name }}" width="150px">
         <mat-form-field class="full-width">
+          <input type="text" matInput [(ngModel)]="p.name" placeholder="Name">
+        </mat-form-field>
+
+        <mat-form-field class="full-width">
           <input type="text" matInput [(ngModel)]="p.description" placeholder="Description">
         </mat-form-field>       
 
@@ -36,7 +40,7 @@
           <components-list [componentsObj]="p.components" [platformId]="p.id"></components-list>
         </div>
 
-        <button mat-raised-button color="primary">Save Changes</button>
+        <button mat-raised-button color="primary" (click)="saveChanges(p)">Save Changes</button>
       </mat-expansion-panel>
     </mat-accordion>
     

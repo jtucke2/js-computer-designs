@@ -23,10 +23,6 @@ export const adminRoutes = [
                 component: ManufacturersComponent
             },
             {
-                path: 'categories',
-                component: CategoriesComponent
-            },
-            {
                 path: 'components',
                 component: ComponentsComponent
             },

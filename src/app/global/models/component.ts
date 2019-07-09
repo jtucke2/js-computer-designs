@@ -1,12 +1,14 @@
-export interface ComputerComponent<T = string, U = string> {
+import { Category } from './categories.enum';
+
+export interface ComputerComponent<T = string> {
     manufacturer: T;
     model: string;
     modelNumber: string;
     purchasePrice: number;
     salePrice: number;
     inventoryLevel: number;
-    category: U;
-    specificationFields: [{ [s: string]: string }];
+    category: Category | string;
+    specificationFields: { name: string, value: string }[];
     requiredPower?: number;
 }
 
@@ -23,6 +25,6 @@ export interface ComponentCategory {
     specificationFields: string[];
 }
 
-export interface ComponentD extends ComputerComponent<ComponentManufacturer, ComponentCategory> {
+export interface ComponentD extends ComputerComponent<ComponentManufacturer> {
     isDefault?: boolean;
 }
