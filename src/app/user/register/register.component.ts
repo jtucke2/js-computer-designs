@@ -5,6 +5,7 @@ import { Observable, merge } from 'rxjs';
 import { map  } from 'rxjs/operators';
 
 import { AuthService } from 'src/app/global/services/auth.service';
+import { SnackbarService } from 'src/app/global/services/snackbar.service';
 
 @Component({
   selector: 'register',
@@ -30,7 +31,8 @@ export class RegisterComponent implements OnInit {
 
   constructor(
     private authService: AuthService,
-    private router: Router
+    private router: Router,
+    private sbs: SnackbarService,
   ) { }
 
   ngOnInit() {
@@ -44,6 +46,7 @@ export class RegisterComponent implements OnInit {
   public registerSubmit() {
     this.authService.register(this.form.value);
     this.router.navigate(['/home']);
+    this.sbs.openSnackbar('Registration Complete');
   }
 
   private validateEmail(emailCtrl: FormControl): Observable<any> {

@@ -48,9 +48,6 @@ export class AddComponentDialogComponent implements OnInit {
         platforms[platformIdx].components[category] = [];
       }
       platforms[platformIdx].components[category].push(...this.form.value);
-      console.log(platforms[platformIdx]);
-      console.log(this.form.value);
-      
       this.inventoryService.platforms = platforms;
       this.dialogRef.close();
       this.sbs.openSnackbar(`Added ${category}(s) to Platform`);

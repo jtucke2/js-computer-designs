@@ -13,6 +13,7 @@ import { ComponentsListComponent } from './components-list/components-list.compo
 import { ComponentFormComponent } from './component-form/component-form.component';
 import { AddPlatformDialogComponent } from './platforms/add-platform-dialog/add-platform-dialog.component';
 import { AddComponentDialogComponent } from './platforms/add-component-dialog/add-component-dialog.component';
+import { CreateComponentDialogComponent } from './components/create-component-dialog/create-component-dialog.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { AddComponentDialogComponent } from './platforms/add-component-dialog/ad
     ComponentsListComponent,
     ComponentFormComponent,
     AddPlatformDialogComponent,
-    AddComponentDialogComponent
+    AddComponentDialogComponent,
+    CreateComponentDialogComponent
   ],
   imports: [
     CommonModule,
@@ -46,10 +48,12 @@ import { AddComponentDialogComponent } from './platforms/add-component-dialog/ad
   entryComponents: [
     AddPlatformDialogComponent,
     AddComponentDialogComponent,
+    CreateComponentDialogComponent,
   ],
   exports: [
     AddPlatformDialogComponent,
     AddComponentDialogComponent,
+    CreateComponentDialogComponent,
   ]
 })
 export class AdminModule { }

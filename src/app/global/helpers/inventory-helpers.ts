@@ -1,21 +1,24 @@
 import { BasePlatform, BasePlatformD } from '../models/base-platform';
 import { defaultPlatforms } from '../models/base-platform-data';
-import { ComputerComponent, ComponentManufacturer, ComponentCategory } from '../models/component';
+import { ComputerComponent, ComponentManufacturer, ComponentCategory, ComponentD } from '../models/component';
 import { defaultComponentsData, defaultComponentManufacturers, defaultComponentCategories } from '../models/component-data';
 import { Categories } from '../models/categories.enum';
 
 export class InventoryHelpers {
     static initBasePlatforms(): BasePlatform[] {
         // TODO add handling for local storage
-        return defaultPlatforms;
+        const platforms = localStorage.getItem('platforms');
+        return platforms ? JSON.parse(platforms) : defaultPlatforms;
     }
 
     static initComponents(): ComputerComponent[] {
-        return defaultComponentsData;
+        const components = localStorage.getItem('components');
+        return components ? JSON.parse(components) : defaultComponentsData;
     }
 
     static initComponentManufacturers(): ComponentManufacturer[] {
-        return defaultComponentManufacturers;
+        const componentManufacturers = localStorage.getItem('componentManufacturers');
+        return componentManufacturers ? JSON.parse(componentManufacturers) : defaultComponentManufacturers;
     }
 
     static initComponentCategories(): ComponentCategory[] {
@@ -35,5 +38,15 @@ export class InventoryHelpers {
             }
         });
         return retVal;
+    }
+
+    static componentDToComponent(compoentD: ComponentD): ComputerComponent {
+        const retVal = {
+            ...compoentD,
+            manufacturer: compoentD.manufacturer.name
+        };
+
+        delete retVal.isDefault;
+        return retVal as ComputerComponent;
     }
 }

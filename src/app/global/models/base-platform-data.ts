@@ -8,17 +8,38 @@ export const defaultPlatforms: BasePlatform[] = [
         description: 'Max Power. No Limits.',
         baseSalePrice: 1000,
         purchasePrice: 500,
-        // TODO pc components
         image: './assets/images/1000D-Built-27.png',
         active: true,
         components: {
             [Category.CPU]: [
                 'BX80684I99900K',
                 'BX80684I79700K'
+            ],
+            GPU: [
+                'nrtx2080ti',
+                'nrtx2060'
+            ],
+            RAM: [
+                'cv3200-16',
+                'cv3200-32'
+            ],
+            'Hard Drive': [
+                'evo970-1',
+                'evo970-1-x2',
+                'evo870-1',
+                'barra4'
+            ],
+            'Power Supply': [
+                'tx750',
+                'tx1000'
             ]
         },
         defaultComponents: {
-            [Category.CPU]: 'BX80684I99900K'
+            [Category.CPU]: 'BX80684I99900K',
+            GPU: 'nrtx2080ti',
+            RAM: 'cv3200-32',
+            'Hard Drive': 'evo970-1',
+            'Power Supply': 'tx750'
         }
     },
     {

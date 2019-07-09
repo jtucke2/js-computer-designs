@@ -28,6 +28,7 @@ export class InventoryService {
   }
 
   set componentManufacturers(componentManufacturers: ComponentManufacturer[]) {
+    localStorage.setItem('componentManufacturers', JSON.stringify(componentManufacturers));
     this.componentManufacturers$.next(componentManufacturers);
   }
 
@@ -36,6 +37,7 @@ export class InventoryService {
   }
 
   set components(components: ComputerComponent[]) {
+    localStorage.setItem('components', JSON.stringify(components));
     this.components$.next(components);
   }
 
@@ -44,6 +46,7 @@ export class InventoryService {
   }
 
   set platforms(platforms: BasePlatform[]) {
+    localStorage.setItem('platforms', JSON.stringify(platforms));
     this.platforms$.next(platforms);
   }
 

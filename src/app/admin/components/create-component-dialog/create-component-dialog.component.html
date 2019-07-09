@@ -1,0 +1,64 @@
+<form [formGroup]="form" (ngSubmit)="save()">
+  <h2 class="mat-h2 flex flexItemsCenter" mat-dialog-title>Add {{ category }} Component</h2>
+
+  <div mat-dialog-content>
+
+    <mat-form-field class="full-width">
+      <mat-label>Manufacturer</mat-label>
+      <mat-select formControlName="manufacturer">
+        <mat-option *ngFor="let m of inventoryService.componentManufacturers$ | async" [value]="m.name">{{ m.name }}</mat-option>
+      </mat-select>
+      <mat-error *ngIf="form.get('manufacturer').hasError('required')">Manufacturer is
+        <strong>required</strong></mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="full-width">
+      <input matInput formControlName="model" placeholder="Model">
+      <mat-error *ngIf="form.get('model').hasError('required')">Model is
+        <strong>required</strong></mat-error>
+    </mat-form-field>
+    <mat-form-field class="full-width">
+      <input matInput formControlName="modelNumber" placeholder="Model Number">
+      <mat-error *ngIf="form.get('modelNumber').hasError('required')">Model Number is
+        <strong>required</strong></mat-error>
+    </mat-form-field>
+    <mat-form-field class="full-width">
+      <input matInput formControlName="salePrice" placeholder="Sale Price" type="number">
+      <mat-error *ngIf="form.get('salePrice').hasError('required')">Sale Price is
+        <strong>required</strong></mat-error>
+    </mat-form-field>
+    <mat-form-field class="full-width">
+      <input matInput formControlName="purchasePrice" placeholder="Purchase Price" type="number">
+      <mat-error *ngIf="form.get('purchasePrice').hasError('required')">Purchase Price is
+        <strong>required</strong></mat-error>
+    </mat-form-field>
+    <mat-form-field class="full-width">
+      <input matInput formControlName="inventoryLevel" placeholder="Inventory Level" type="number">
+      <mat-error *ngIf="form.get('inventoryLevel').hasError('required')">Inventory Level is
+        <strong>required</strong></mat-error>
+    </mat-form-field>
+    <mat-form-field class="full-width">
+      <input matInput formControlName="requiredPower" placeholder="Required Power" type="number">
+      <mat-error *ngIf="form.get('requiredPower').hasError('required')">Required Power is
+        <strong>required</strong></mat-error>
+    </mat-form-field>
+
+    <div formArrayName="specificationFields" *ngFor="let sf of form.get('specificationFields').controls; index as i">
+      <div [formGroupName]="i">
+        <mat-form-field class="full-width">
+          <input matInput formControlName="value" placeholder="{{ form.get('specificationFields').at(i).get('name').value }}">
+          <mat-error *ngIf="form.get('specificationFields').at(i).get('value').hasError('required')">
+            {{ form.get('specificationFields').at(i).get('name').value }} is
+            <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
+      </div>
+    </div>
+  </div>
+
+  <div mat-dialog-actions class="text-right">
+    <button mat-button (click)="cancel()">Cancel</button>
+    <span>&nbsp;</span>
+    <button type="submit" mat-raised-button color="primary" [disabled]="form.status !== 'VALID'">Save</button>
+  </div>
+</form>
