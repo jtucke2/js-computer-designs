@@ -7,11 +7,15 @@ import { adminRoutes } from './admin/admin.routes';
 import { UserRoles } from './global/models/user';
 import { AuthGuard } from './global/services/auth.guard';
 import { storeFrontRoutes } from './storefront/storefront.routes';
+import { CartComponent } from './global/components/cart/cart.component';
+import { CheckoutComponent } from './global/components/checkout/checkout.component';
+import { OrdersComponent } from './global/components/orders/orders.component';
 
 const routes: Routes = [
   { path: 'home', component: LandingPageComponent },
   { path: 'user', children: userRoutes },
   { path: 'store', children: storeFrontRoutes },
+  { path: 'cart', component: CartComponent },
   {
     path: 'admin',
     children: adminRoutes,
@@ -21,6 +25,16 @@ const routes: Routes = [
         UserRoles.ADMIN
       ]
     }
+  },
+  {
+    path: 'checkout',
+    component: CheckoutComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'orders',
+    component: OrdersComponent,
+    canActivate: [AuthGuard]
   },
   { path: '', redirectTo: 'home', pathMatch: 'full' },
 ];

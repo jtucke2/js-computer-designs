@@ -18,4 +18,5 @@ export interface BasePlatformD extends BasePlatform<ComponentD[]> {
 
 export interface CartPlatform extends BasePlatform<ComponentD> {
     purchasePrice: number;
+    quantity: number;
 }

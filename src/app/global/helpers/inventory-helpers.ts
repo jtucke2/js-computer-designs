@@ -44,7 +44,8 @@ export class InventoryHelpers {
         const retVal: CartPlatform = {
             ...platformD,
             components: {},
-            purchasePrice
+            purchasePrice,
+            quantity: 1,
         };
         Categories.forEach(cat => {
             if (platformD.components[cat]) {

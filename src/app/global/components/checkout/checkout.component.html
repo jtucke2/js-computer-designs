@@ -1,0 +1,46 @@
+<div id="checkoutComponent" class="container">
+    <div class="mt-30">&nbsp;</div>
+    <div class="row" *ngIf="errorMessage">
+      <div class="col-lg-6 offset-lg-3 col-md-8 offset-md-2 col-sm-12">
+        <div class="alert alert-danger">{{ errorMessage }}</div>
+      </div>
+    </div>
+    <div class="row" *ngIf="order">
+        <div class="col-lg-6 offset-lg-3 col-md-8 offset-md-2 col-sm-12">
+            <h1 class="mat-h1">Complete Order</h1>
+            <mat-card>
+                <mat-card-content>                
+                <div *ngFor="let p of order.items; index as i; last as last">
+                    <br>
+                    <div class="flex flexItemsCenter mb-3">
+                        <div style="height: 50px;">
+                        <img src="{{ p.image }}" alt="{{ p.name }}" width="50px">
+                        </div>
+                        <div class="flex1 mat-h2 text-primary m-0">{{ p.name }} ({{ p.quantity }})</div>
+                        <span>{{ p.purchasePrice * p.quantity | currency }}</span>
+                    </div>
+                    <mat-divider></mat-divider>
+                </div>
+                <div class="mt-10">
+                    <mat-form-field class="full-width">
+                        <textarea matInput [(ngModel)]="order.shippingAddress" placeholder="Shipping Address" required></textarea>
+                    </mat-form-field>
+                </div>
+                <div class="mt-10 flex flexItemsCenter">
+                  <span><strong>Total: </strong>{{ getTotal() | currency }}</span>
+                  <span class="flex1">&nbsp;</span>
+                  <span>
+                    <button mat-button>Cancel</button>&nbsp;
+                    <button mat-raised-button color="accent" (click)="purchase()" [disabled]="!order.shippingAddress || !order.shippingAddress.length">Purchase</button>
+                  </span>
+                </div>
+                </mat-card-content>
+            </mat-card>
+        </div>
+    </div>
+    <div class="row" *ngIf="!order">
+        <div class="col-lg-6 offset-lg-3 col-md-8 offset-md-2 col-sm-12">
+            <div class="alert alert-success">You have no order ready to be checked out.</div>
+        </div>
+    </div>
+</div>

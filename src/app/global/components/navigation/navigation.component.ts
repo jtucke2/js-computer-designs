@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { UserService } from '../../services/user.service';
+import { CartService } from '../../services/cart.service';
 
 @Component({
   selector: 'navigation',
@@ -9,7 +10,10 @@ import { UserService } from '../../services/user.service';
 })
 export class NavigationComponent implements OnInit {
 
-  constructor(public userService: UserService) { }
+  constructor(
+    public userService: UserService,
+    public cartService: CartService,
+  ) { }
 
   ngOnInit() {
   }

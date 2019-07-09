@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, ParamMap } from '@angular/router';
+import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { map, withLatestFrom, tap, startWith, debounceTime, take, share } from 'rxjs/operators';
 import { InventoryService } from 'src/app/global/services/inventory.service';
 import { Observable, combineLatest, of } from 'rxjs';
@@ -7,6 +7,8 @@ import { BasePlatformD } from 'src/app/global/models/base-platform';
 import { Categories, Category } from 'src/app/global/models/categories.enum';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { InventoryHelpers } from 'src/app/global/helpers/inventory-helpers';
+import { CartService } from 'src/app/global/services/cart.service';
+import { SnackbarService } from 'src/app/global/services/snackbar.service';
 
 @Component({
   selector: 'customize',
@@ -23,7 +25,10 @@ export class CustomizeComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
+    private router: Router,
     private inventoryService: InventoryService,
+    private cartService: CartService,
+    private sbs: SnackbarService,
   ) { }
 
   ngOnInit() {
@@ -108,6 +113,9 @@ export class CustomizeComponent implements OnInit {
 
   public addToCart(p: BasePlatformD) {
     const pp = InventoryHelpers.platformDToCartPlatform(p, this.form.value, this.subTotal);
+    this.cartService.addItemToCart(pp);
+    this.router.navigate(['cart']);
+    this.sbs.openSnackbar(`Added ${p.name} Computer to Cart`);
   }
 
   private resetForm() {

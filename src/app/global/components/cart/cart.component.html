@@ -1,0 +1,59 @@
+<div id="cartComponent" class="container">
+    <div class="mt-30">&nbsp;</div>
+    <div class="row">
+        <div class="col-lg-6 offset-lg-3 col-md-8 offset-md-2 col-sm-12">
+            <h1 class="mat-h1">Your Cart</h1>
+            <mat-card *ngIf="cartService.cart.length">
+                <mat-card-content>
+                    <div *ngFor="let p of cartService.cart; index as i; last as last">
+                        <br>
+                        <div class="flex flexItemsCenter">
+                            <div style="height: 50px;">
+                                <img src="{{ p.image }}" alt="{{ p.name }}" width="50px">
+                            </div>
+                            <div class="flex1 mat-h2 text-primary m-0">{{ p.name }}</div>
+                            <span>{{ p.purchasePrice * p.quantity | currency }}</span>
+                        </div>
+                        <div class="flex flexItemsCenter">
+                            <span>                                
+                                <ul>
+                                    <li class="text-muted" *ngFor="let cat of categories">
+                                    <strong>{{ cat }}:&nbsp;</strong>
+                                    <span>{{ p.components[cat]?.manufacturer?.name }}
+                                        {{ p.components[cat]?.model }}</span>
+                                    </li>
+                                </ul>
+                            </span>
+                            <div class="flex1">&nbsp;</div>
+                            <span>
+                                <div>
+                                    <mat-form-field style="max-width: 60px;">
+                                        <input type="number" matInput [(ngModel)]="p.quantity" placeholder="Quantity" min="1">
+                                    </mat-form-field>
+                                </div>
+                                <div style="margin-left: 7px;">
+                                    <button mat-icon-button (click)="cartService.removeItemFromCart(i)" matTooltip="Remove from cart">
+                                        <i class="material-icons">close</i>
+                                    </button>
+                                </div>    
+                            </span>
+                        </div>
+                        <mat-divider></mat-divider>
+                    </div>
+                    <div class="mt-10 flex flexItemsCenter">
+                        <span><strong>Total: </strong>{{ getTotal() | currency }}</span>
+                        <span class="flex1">&nbsp;</span>
+                        <span>
+                            <button mat-button (click)="cartService.clearCart()">Clear Cart</button>&nbsp;
+                            <button mat-raised-button color="accent" (click)="checkout()">Checkout</button>
+                        </span>
+                    </div>
+                </mat-card-content>
+
+                <!-- TODO signin to purchase -->
+            </mat-card>
+            <div class="alert alert-success" *ngIf="!cartService.cart.length">Your cart is empty.</div>
+        </div>
+    </div>
+    <div class="mt-30">&nbsp;</div>
+</div>

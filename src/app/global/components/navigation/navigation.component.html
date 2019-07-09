@@ -9,6 +9,13 @@
   <a mat-button routerLink="/admin"
     *ngIf="userService.loggedIn && userService.user && userService.user.role === 'ADMIN'">Admin</a>
 
+  <a mat-icon-button routerLink="/cart">
+    <i class="material-icons" 
+      [matBadge]="cartService.cart.length"
+      [matBadgeHidden]="cartService.cart.length === 0"
+      matBadgeColor="accent">shopping_cart</i>
+  </a>
+
   <button mat-icon-button [matMenuTriggerFor]="menu" *ngIf="userService.loggedIn">
     <i class="material-icons">account_circle</i>
   </button>
@@ -16,6 +23,10 @@
     <button mat-menu-item disabled="true" *ngIf="userService.loggedIn">
       <span>{{ userService.user?.email }}</span>
     </button>
+    <a mat-menu-item routerLink="/orders">
+      <mat-icon>local_shipping</mat-icon>
+      <span>Orders</span>
+    </a>
     <a mat-menu-item routerLink="/home" (click)="userService.logout()">
       <mat-icon>exit_to_app</mat-icon>
       <span>Sign out</span>

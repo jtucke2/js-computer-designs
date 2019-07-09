@@ -1,0 +1,35 @@
+<div id="ordersComponent" class="container">
+  <div class="mt-30">&nbsp;</div>
+  <div class="row">
+      <div class="col-lg-6 offset-lg-3 col-md-8 offset-md-2 col-sm-12">
+        <h1 class="mat-h1">My Orders</h1>
+        <mat-card *ngFor="let o of ordersDat" class="mt-15">
+            <mat-card-content>
+                <div class="flex">
+                    <div class="flex1">
+                        <h3 class="mat-h3 text-primary" *ngIf="o.shippingStatus === 'IN_PROGRESS'">Out for Delivery</h3>
+                        <h3 class="mat-h3 " *ngIf="o.shippingStatus === 'COMPLETE'">Delivered {{ o?.deliveredDate }}</h3>
+                        <div *ngFor="let p of o.items" class="mt-3 mb-3">
+                            <div class="flex flexItemsCenter">
+                                <div><img src="{{ p.image }}" alt="{{ p.name }}" height="70px"></div>
+                                <div>
+                                    <div class="mb-3" style="font-size: 16px;">{{ p.name }}</div>
+                                    <div>{{ p.purchasePrice | currency }}</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="actions">
+                        <div *ngIf="o.shippingStatus === 'IN_PROGRESS'" class="mb-9"><button mat-raised-button color="primary">Track Shipment</button></div>
+                        <div *ngIf="o.shippingStatus === 'IN_PROGRESS'" class="mb-9"><button mat-raised-button>Canel Order</button></div>
+                        <div class="mb-9"><button mat-raised-button>Order Details</button></div>
+                        <div class="mb-9"><button mat-raised-button>Archive Order</button></div>
+                        <div *ngIf="o.shippingStatus === 'COMPLETE'"><button mat-raised-button>Write Review</button></div>
+                    </div>
+                </div>
+            </mat-card-content>
+        </mat-card>
+      </div>
+  </div>
+  <div class="mt-30">&nbsp;</div>
+</div>

@@ -10,6 +10,7 @@ export class LayoutComponent implements OnInit {
     { url: 'platforms', label: 'Base Platforms' },
     { url: 'components', label: 'Components' },
     { url: 'manufacturers', label: 'Manufacturers' },
+    { url: 'reports', label: 'Reports' },
   ];
 
   constructor() { }

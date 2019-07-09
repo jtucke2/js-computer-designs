@@ -2,6 +2,7 @@ import { LayoutComponent } from './layout/layout.component';
 import { PlatformsComponent } from './platforms/platforms.component';
 import { ManufacturersComponent } from './manufacturers/manufacturers.component';
 import { ComponentsComponent } from './components/components.component';
+import { ReportsComponent } from './reports/reports.component';
 
 export const adminRoutes = [
     {
@@ -24,6 +25,10 @@ export const adminRoutes = [
             {
                 path: 'components',
                 component: ComponentsComponent
+            },
+            {
+                path: 'reports',
+                component: ReportsComponent
             },
         ]
     }

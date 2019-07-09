@@ -7,7 +7,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { GlobalModule } from './global/global.module';
 import { UserModule } from './user/user.module';
 import { RouterModule } from '@angular/router';
-import { MatDialogModule } from '@angular/material';
+import { MatDialogModule, MatDatepickerModule, MatNativeDateModule } from '@angular/material';
 import { StorefrontModule } from './storefront/storefront.module';
 
 @NgModule({
@@ -23,6 +23,8 @@ import { StorefrontModule } from './storefront/storefront.module';
     UserModule,
     MatDialogModule,
     StorefrontModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

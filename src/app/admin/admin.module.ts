@@ -15,6 +15,7 @@ import { AddPlatformDialogComponent } from './platforms/add-platform-dialog/add-
 import { AddComponentDialogComponent } from './platforms/add-component-dialog/add-component-dialog.component';
 import { CreateComponentDialogComponent } from './components/create-component-dialog/create-component-dialog.component';
 import { AddManufacturerDialogComponent } from './manufacturers/add-manufacturer-dialog/add-manufacturer-dialog.component';
+import { ReportsComponent } from './reports/reports.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { AddManufacturerDialogComponent } from './manufacturers/add-manufacturer
     AddPlatformDialogComponent,
     AddComponentDialogComponent,
     CreateComponentDialogComponent,
-    AddManufacturerDialogComponent
+    AddManufacturerDialogComponent,
+    ReportsComponent
   ],
   imports: [
     CommonModule,
