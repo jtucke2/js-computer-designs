@@ -43,12 +43,12 @@
         <strong>required</strong></mat-error>
     </mat-form-field>
 
-    <div formArrayName="specificationFields" *ngFor="let sf of form.get('specificationFields').controls; index as i">
+    <div formArrayName="specificationFields" *ngFor="let sf of getFormArray().controls; index as i">
       <div [formGroupName]="i">
         <mat-form-field class="full-width">
-          <input matInput formControlName="value" placeholder="{{ form.get('specificationFields').at(i).get('name').value }}">
-          <mat-error *ngIf="form.get('specificationFields').at(i).get('value').hasError('required')">
-            {{ form.get('specificationFields').at(i).get('name').value }} is
+          <input matInput formControlName="value" placeholder="{{ form.get('specificationFields').get(i).get('name').value }}">
+          <mat-error *ngIf="form.get('specificationFields').get(i).get('value').hasError('required')">
+            {{ form.get('specificationFields').get(i).get('name').value }} is
             <strong>required</strong>
           </mat-error>
         </mat-form-field>

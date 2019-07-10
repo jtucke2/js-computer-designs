@@ -12,7 +12,7 @@ export class CartComponent implements OnInit {
   public categories = Categories;
 
   constructor(
-    private cartService: CartService,
+    public cartService: CartService,
     private router: Router
   ) { }
 

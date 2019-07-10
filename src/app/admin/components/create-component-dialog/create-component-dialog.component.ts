@@ -1,8 +1,8 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
-import { InventoryService } from 'src/app/global/services/inventory.service';
-import { SnackbarService } from 'src/app/global/services/snackbar.service';
-import { Category, CategorySpecificationFields } from 'src/app/global/models/categories.enum';
+import { InventoryService } from '../../../global/services/inventory.service';
+import { SnackbarService } from '../../../global/services/snackbar.service';
+import { Category, CategorySpecificationFields } from '../../../global/models/categories.enum';
 import { FormGroup, FormArray, FormControl, Validators } from '@angular/forms';
 
 @Component({
@@ -18,7 +18,7 @@ export class CreateComponentDialogComponent implements OnInit {
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
     public dialogRef: MatDialogRef<CreateComponentDialogComponent>,
-    private inventoryService: InventoryService,
+    public inventoryService: InventoryService,
     private sbs: SnackbarService,
   ) {}
 
@@ -42,6 +42,10 @@ export class CreateComponentDialogComponent implements OnInit {
       requiredPower: new FormControl(0, Validators.required),
       specificationFields: specArrayForm
     });
+  }
+
+  public getFormArray(): FormArray {
+    return this.form.get('specificationFields') as FormArray;
   }
 
   cancel() {

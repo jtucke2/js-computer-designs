@@ -4,8 +4,8 @@ import { Router } from '@angular/router';
 import { Observable, merge } from 'rxjs';
 import { map  } from 'rxjs/operators';
 
-import { AuthService } from 'src/app/global/services/auth.service';
-import { SnackbarService } from 'src/app/global/services/snackbar.service';
+import { AuthService } from '../../global/services/auth.service';
+import { SnackbarService } from '../../global/services/snackbar.service';
 
 @Component({
   selector: 'register',

@@ -1,10 +1,10 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material';
 import { Subject } from 'rxjs';
-import { InventoryService } from 'src/app/global/services/inventory.service';
+import { InventoryService } from '../../../global/services/inventory.service';
 import { map } from 'rxjs/operators';
 import { FormControl } from '@angular/forms';
-import { SnackbarService } from 'src/app/global/services/snackbar.service';
+import { SnackbarService } from '../../../global/services/snackbar.service';
 
 @Component({
   selector: 'add-component-dialog',

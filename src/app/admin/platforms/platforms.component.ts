@@ -2,9 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { InventoryService } from '../../global/services/inventory.service';
 import { MatDialog } from '@angular/material';
 import { AddPlatformDialogComponent } from './add-platform-dialog/add-platform-dialog.component';
-import { BasePlatformD } from 'src/app/global/models/base-platform';
-import { InventoryHelpers } from 'src/app/global/helpers/inventory-helpers';
-import { SnackbarService } from 'src/app/global/services/snackbar.service';
+import { BasePlatformD } from '../../global/models/base-platform';
+import { InventoryHelpers } from '../../global/helpers/inventory-helpers';
+import { SnackbarService } from '../../global/services/snackbar.service';
 
 @Component({
   selector: 'platforms',

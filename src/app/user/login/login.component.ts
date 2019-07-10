@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
-import { AuthService, LoginReturnData } from 'src/app/global/services/auth.service';
-import { UserService } from 'src/app/global/services/user.service';
+import { AuthService, LoginReturnData } from '../../global/services/auth.service';
+import { UserService } from '../../global/services/user.service';
 
 @Component({
   selector: 'login',

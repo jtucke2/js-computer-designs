@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { InventoryService } from 'src/app/global/services/inventory.service';
-import { BasePlatformD } from 'src/app/global/models/base-platform';
-import { Category } from 'src/app/global/models/categories.enum';
+import { InventoryService } from '../../global/services/inventory.service';
+import { BasePlatformD } from '../../global/models/base-platform';
+import { Category } from '../../global/models/categories.enum';
 
 @Component({
   selector: 'compare',
@@ -11,7 +11,7 @@ import { Category } from 'src/app/global/models/categories.enum';
 export class CompareComponent implements OnInit {
 
   constructor(
-    private inventoryService: InventoryService,
+    public inventoryService: InventoryService,
   ) { }
 
   ngOnInit() {

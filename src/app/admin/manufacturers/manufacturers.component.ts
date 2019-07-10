@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { InventoryService } from 'src/app/global/services/inventory.service';
+import { InventoryService } from '../../global/services/inventory.service';
 import { MatDialog } from '@angular/material';
-import { SnackbarService } from 'src/app/global/services/snackbar.service';
-import { ComponentManufacturer } from 'src/app/global/models/component';
+import { SnackbarService } from '../../global/services/snackbar.service';
+import { ComponentManufacturer } from '../../global/models/component';
 import { AddManufacturerDialogComponent } from './add-manufacturer-dialog/add-manufacturer-dialog.component';
 
 @Component({

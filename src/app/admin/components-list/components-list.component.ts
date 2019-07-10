@@ -1,8 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { ComputerComponent, ComponentD } from 'src/app/global/models/component';
-import { InventoryService } from 'src/app/global/services/inventory.service';
-import { CategoriesWithSpecifications } from 'src/app/global/models/categories.enum';
-import { SnackbarService } from 'src/app/global/services/snackbar.service';
+import { ComputerComponent, ComponentD } from '../../global/models/component';
+import { InventoryService } from '../../global/services/inventory.service';
+import { CategoriesWithSpecifications } from '../../global/models/categories.enum';
+import { SnackbarService } from '../../global/services/snackbar.service';
 import { MatDialog } from '@angular/material';
 import { AddComponentDialogComponent } from '../platforms/add-component-dialog/add-component-dialog.component';
 

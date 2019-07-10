@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { InventoryService } from 'src/app/global/services/inventory.service';
+import { InventoryService } from '../../global/services/inventory.service';
 
 @Component({
   selector: 'component-form',

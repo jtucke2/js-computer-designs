@@ -1,6 +1,6 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material';
-import { Order } from 'src/app/global/services/cart.service';
+import { Order } from '../../../../global/services/cart.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 @Component({

@@ -55,10 +55,31 @@ export const defaultPlatforms: BasePlatform[] = [
             [Category.CPU]: [
                 'YD270XBGAFBOX',
                 'YD260XBCAFBOX'
+            ],
+            GPU: [
+                'nrtx2060'
+            ],
+            RAM: [
+                'cv3200-8',
+                'cv3200-16'
+            ],
+            'Hard Drive': [
+                'evo970-1',
+                'evo970-1-x2',
+                'evo870-1',
+                'barra4'
+            ],
+            'Power Supply': [
+                'tx750',
+                'tx500'
             ]
         },
         defaultComponents: {
-            [Category.CPU]: 'YD270XBGAFBOX'
+            [Category.CPU]: 'YD270XBGAFBOX',
+            GPU: 'nrtx2060',
+            RAM: 'cv3200-8',
+            'Hard Drive': 'evo870-1',
+            'Power Supply': 'tx500'
         }
     },
     {
@@ -74,10 +95,31 @@ export const defaultPlatforms: BasePlatform[] = [
             [Category.CPU]: [
                 'YD295XA8AFWOF',
                 'YD299XAZAFWOF'
+            ],
+            GPU: [
+                'amdvegapro'
+            ],
+            RAM: [
+                'cv3200-64',
+                'cv3200-32'
+            ],
+            'Hard Drive': [
+                'evo970-1',
+                'evo970-1-x2',
+                'evo870-1',
+                'barra4'
+            ],
+            'Power Supply': [
+                'tx750',
+                'tx1000'
             ]
         },
         defaultComponents: {
-            [Category.CPU]: 'YD295XA8AFWOF'
+            [Category.CPU]: 'YD295XA8AFWOF',
+            GPU: 'amdvegapro',
+            RAM: 'cv3200-64',
+            'Hard Drive': 'evo970-1',
+            'Power Supply': 'tx750'
         }
     },
 ];

@@ -1,14 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { map, withLatestFrom, tap, startWith, debounceTime, take, share } from 'rxjs/operators';
-import { InventoryService } from 'src/app/global/services/inventory.service';
+import { InventoryService } from '../../global/services/inventory.service';
 import { Observable, combineLatest, of } from 'rxjs';
-import { BasePlatformD } from 'src/app/global/models/base-platform';
-import { Categories, Category } from 'src/app/global/models/categories.enum';
+import { BasePlatformD } from '../../global/models/base-platform';
+import { Categories, Category } from '../../global/models/categories.enum';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { InventoryHelpers } from 'src/app/global/helpers/inventory-helpers';
-import { CartService } from 'src/app/global/services/cart.service';
-import { SnackbarService } from 'src/app/global/services/snackbar.service';
+import { InventoryHelpers } from '../../global/helpers/inventory-helpers';
+import { CartService } from '../../global/services/cart.service';
+import { SnackbarService } from '../../global/services/snackbar.service';
 
 @Component({
   selector: 'customize',

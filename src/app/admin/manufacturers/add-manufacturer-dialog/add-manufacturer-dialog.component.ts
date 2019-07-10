@@ -1,8 +1,8 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material';
-import { InventoryService } from 'src/app/global/services/inventory.service';
-import { SnackbarService } from 'src/app/global/services/snackbar.service';
+import { InventoryService } from '../../../global/services/inventory.service';
+import { SnackbarService } from '../../../global/services/snackbar.service';
 
 @Component({
   selector: 'add-manufacturer-dialog',

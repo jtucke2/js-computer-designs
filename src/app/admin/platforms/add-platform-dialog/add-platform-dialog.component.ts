@@ -6,8 +6,8 @@ import * as UUID from 'uuid';
 import { AdminService } from '../../admin.service';
 import { map, startWith, tap, withLatestFrom } from 'rxjs/operators';
 import { BehaviorSubject } from 'rxjs';
-import { Category, Categories } from 'src/app/global/models/categories.enum';
-import { SnackbarService } from 'src/app/global/services/snackbar.service';
+import { Category, Categories } from '../../../global/models/categories.enum';
+import { SnackbarService } from '../../../global/services/snackbar.service';
 
 @Component({
   selector: 'add-platform-dialog',
