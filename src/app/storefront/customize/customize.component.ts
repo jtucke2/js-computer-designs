@@ -66,7 +66,6 @@ export class CustomizeComponent implements OnInit {
       this.form.valueChanges.pipe(startWith(this.form.value))
     )
     .pipe(
-      tap(console.log),
       tap(([p, f]) => {
         Object.entries(f).forEach(([cat, modelNumber]) => {
           const fc = p.components[cat].find(c => c.modelNumber === modelNumber);
@@ -78,7 +77,7 @@ export class CustomizeComponent implements OnInit {
         });
       }),
       map(([p, f]) => {
-        if (this.form.status !== 'VALID' || !this.form.touched) {
+        if (this.form.status !== 'VALID') {
           return p.startingPrice;
         } else {
           return p.baseSalePrice + Object.entries(f)

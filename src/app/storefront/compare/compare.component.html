@@ -4,7 +4,7 @@
 <div class="mt-30 mb-10">&nbsp;</div>
 <div id="compareComponent" class="container">
     <div class="row">
-        <div class="col-md-4 col-sm-12 text-center" *ngFor="let p of inventoryService.fullPlatforms$ | async; odd as odd">
+        <div class="col-md-4 col-sm-12 text-center" *ngFor="let p of inventoryService.activePlatforms$ | async; odd as odd">
             <mat-card>
                 <mat-card-content>                    
                     <div class="mat-h1" style="font-weight: 400;">{{ p.name }}</div>
